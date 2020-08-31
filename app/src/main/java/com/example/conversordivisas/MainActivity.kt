@@ -10,6 +10,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Get input text
+        val inputText = textInputLayout.editText?.text.toString()
+
+        textInputLayout.editText?.doOnTextChanged { inputText, _, _, _ ->
+            // Respond to input text change
+        }
+
 
     }
 }
