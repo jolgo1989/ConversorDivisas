@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">ConversorDivisas</string>
     <string name="numero">Ingrese divisa</string>
+    <string name="cantidad">Cantidad a Convertir</string>
+    <string name="desdeladivisa">Desde la divisa</string>
+    <string name="aladivisa">Ala divisa</string>
+    <string name="convertir">Convertir</string>
+    <string name="moneda1">Moneda1</string>
+    <string name="moneda2">Moneda2</string>
 </resources>
