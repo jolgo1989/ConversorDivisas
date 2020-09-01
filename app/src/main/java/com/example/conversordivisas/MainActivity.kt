@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val lista = arrayOf("USA Dólar", "Euro", "Colombia peso", "Canadá Dólar")
-        val lista2 = arrayOf("USA Dólar", "Euro", "Colombia peso", "Canadá Dólar")
+        val lista = arrayOf("USA Dólar", "Euro", "Canadá Dólar")
+        val lista2 = arrayOf("Colombia peso")
         val adaptador1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista)
         val adaptador2 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lista2)
         spinner.adapter = adaptador1
@@ -22,41 +22,35 @@ class MainActivity : AppCompatActivity() {
             // Get input text
             val inputText = textInputLayout.editText?.text.toString().toDouble()
 
-            val dolar = 3.768
-            val euro = 4.464
-            val canada = 2.865
-            val pesoCol = 0.0003
-
-            when (spinner.selectedItem.toString()) {
-                "USA Dólar" -> textViewTres.text = ("$dolar")
-                "Euro" -> textViewTres.text = ("$euro")
-                "Colombia peso" -> textViewTres.text = ("$pesoCol")
-                "Canadá Dólar" -> textViewTres.text = ("$canada")
-
-            }
+            val dolar = inputText * 3.768
+            val euro = inputText * 4.464
+            val canada = inputText * 2.865
 
 
-            when (spinner2.selectedItem.toString()) {
-                "USA Dólar" -> textViewCuatro.text = ("$dolar")
-                "Euro" -> textViewCuatro.text = ("$euro")
-                "Colombia peso" -> textViewCuatro.text = ("$pesoCol")
-                "Canadá Dólar" -> textViewCuatro.text = ("$canada")
+            if (spinner.selectedItem.toString() == "USA Dólar" && spinner2.selectedItem.toString() == "Colombia peso") {
 
+                textViewTres.text = dolar.toString()
+
+            } else
+
+                if (spinner.selectedItem.toString() == "Euro" && spinner2.selectedItem.toString() == "Colombia peso") {
+
+                    textViewTres.text = euro.toString()
+
+                } else
+
+                    if (spinner.selectedItem.toString() == "Canadá Dólar" && spinner2.selectedItem.toString() == "Colombia peso") {
+
+                        textViewTres.text = canada.toString()
+
+                    }
+
+
+            textInputLayout.editText?.doOnTextChanged { _, _, _, _ ->
+                // Respond to input text change
             }
 
 
         }
-
-
-
-
-
-
-
-        textInputLayout.editText?.doOnTextChanged { inputText, _, _, _ ->
-            // Respond to input text change
-        }
-
-
     }
 }
