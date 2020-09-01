@@ -3,6 +3,7 @@ package com.example.conversordivisas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.core.view.isEmpty
 import androidx.core.widget.doOnTextChanged
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,31 +20,28 @@ class MainActivity : AppCompatActivity() {
         spinner2.adapter = adaptador2
 
         button.setOnClickListener {
-            // Get input text
             val inputText = textInputLayout.editText?.text.toString().toDouble()
-
             val dolar = inputText * 3.768
             val euro = inputText * 4.464
             val canada = inputText * 2.865
+            
+                if (spinner.selectedItem.toString() == "USA Dólar" && spinner2.selectedItem.toString() == "Colombia peso") {
 
-
-            if (spinner.selectedItem.toString() == "USA Dólar" && spinner2.selectedItem.toString() == "Colombia peso") {
-
-                textViewTres.text = dolar.toString()
-
-            } else
-
-                if (spinner.selectedItem.toString() == "Euro" && spinner2.selectedItem.toString() == "Colombia peso") {
-
-                    textViewTres.text = euro.toString()
+                    textViewTres.text = dolar.toString()
 
                 } else
 
-                    if (spinner.selectedItem.toString() == "Canadá Dólar" && spinner2.selectedItem.toString() == "Colombia peso") {
+                    if (spinner.selectedItem.toString() == "Euro" && spinner2.selectedItem.toString() == "Colombia peso") {
 
-                        textViewTres.text = canada.toString()
+                        textViewTres.text = euro.toString()
 
-                    }
+                    } else
+
+                        if (spinner.selectedItem.toString() == "Canadá Dólar" && spinner2.selectedItem.toString() == "Colombia peso") {
+
+                            textViewTres.text = canada.toString()
+
+                        }
 
 
             textInputLayout.editText?.doOnTextChanged { _, _, _, _ ->
