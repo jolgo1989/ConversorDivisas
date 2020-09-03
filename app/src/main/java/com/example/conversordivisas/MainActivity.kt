@@ -63,4 +63,39 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+    
+    
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.overflow,menu)
+        return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+
+            R.id.buscar->{
+                Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            R.id.compartir -> {
+                Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            R.id.item1 -> {
+                Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            R.id.item2 -> {
+                Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+
+      }
+  }
