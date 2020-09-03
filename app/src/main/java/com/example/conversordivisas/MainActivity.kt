@@ -43,12 +43,12 @@ class MainActivity : AppCompatActivity() {
 
                         }
             
-            //Metodo para signar error cuando el campo este vacio
+            //Metodo para asignar error cuando el campo este vacio
             if (inputText != null){
                 textInputLayout.error = ""
 
             } else {
-                //Double1 is not a number
+         
                 textInputLayout.error = "Error"
                 textView.text = ""
             }
