@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
         spinner2.adapter = adaptador2
 
         button.setOnClickListener {
-            val inputText = textInputLayout.editText?.text.toString().toDouble()
-            val dolar = inputText * 3.768
-            val euro = inputText * 4.464
-            val canada = inputText * 2.865
+            val inputText = textInputLayout.editText?.text.toString().toDoubleOrNull()
+            val dolar = inputText?.times(3.768)
+            val euro = inputText?.times(4.464)
+            val canada = inputText?.times(2.865)
             
                 if (spinner.selectedItem.toString() == "USA Dólar" && spinner2.selectedItem.toString() == "Colombia peso") {
 
@@ -42,6 +42,18 @@ class MainActivity : AppCompatActivity() {
                             textViewTres.text = canada.toString()
 
                         }
+            if (inputText != null){
+                //Double1 is a number
+                textInputLayout.error = ""
+
+            } else {
+                //Double1 is not a number
+                textInputLayout.error = "Error"
+                textView.text = ""
+            }
+
+
+        }
 
 
             textInputLayout.editText?.doOnTextChanged { _, _, _, _ ->
@@ -51,4 +63,3 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-}
