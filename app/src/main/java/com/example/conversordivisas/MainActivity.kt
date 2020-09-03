@@ -42,8 +42,9 @@ class MainActivity : AppCompatActivity() {
                             textViewTres.text = canada.toString()
 
                         }
+            
+            //Metodo para signar error cuando el campo este vacio
             if (inputText != null){
-                //Double1 is a number
                 textInputLayout.error = ""
 
             } else {
